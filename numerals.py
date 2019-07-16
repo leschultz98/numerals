@@ -181,7 +181,3 @@ def integer_to_english_numeral(n, activate_tts=False):
             Sound(path).play()
             sleep(len(word) / 7)
     return number
-
-
-print(integer_to_vietnamese_numeral(1201, 'south', True))
-# print(integer_to_english_numeral(11, True))
