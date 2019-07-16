@@ -55,7 +55,7 @@ def integer_to_vietnamese_numeral(n, region='north', activate_tts=False):
     if n > 999999999999:
         raise OverflowError('Integer greater than 999,999,999,999')
     if region is None:
-        pass
+        region = 'north'
     elif not isinstance(region, str):
         raise TypeError('Argument "region" is not a string')
     elif region != 'north' and region != 'south':
@@ -181,7 +181,3 @@ def integer_to_english_numeral(n, activate_tts=False):
             Sound(path).play()
             sleep(len(word) / 7)
     return number
-
-
-print(integer_to_vietnamese_numeral(1201, 'south', True))
-# print(integer_to_english_numeral(11, True))
