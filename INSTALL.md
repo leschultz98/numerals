@@ -31,12 +31,7 @@ The code was tested on Ubuntu 16.04, with Python 3.7.3 and Pygame v1.9.6.
     $ pipenv install
     ~~~~ 
 ###5. Let's start
-- Change directory to your project folder and run Python.
+- Execute file `execute.py`.
     ~~~
-    $ python
-    ~~~
-- Import all modules from `numerals.py`.
-    ~~~
-    $ from numerals import *
-    ~~~
+    $ pipenv run python execute.py
 Done !!!
