@@ -18,9 +18,27 @@ def check_input(name, option):
         return info
 
 
-while True:
-    n = int(input('\nPlease enter a number: '))
-    print('\nWelcome to Artificial Speak!')
+def one_more_time():
+    if input('\nOne more time... (y/any key else): ') != 'y':
+        print('\nGoodbye!')
+        return False
+    else:
+        return True
+
+
+print('\nWelcome to Artificial Speak!')
+print('(Enter q anytime to exit)')
+flag = True
+while flag:
+    n = input('\nPlease enter a number: ')
+    if n == 'q':
+        print('\nGoodbye!')
+        break
+    try:
+        n = int(n)
+    except:
+        print('\nPlease enter again!')
+        continue
     step_1 = check_input('a language numerals',
                          ['Vietnamese Numerals', 'English Numerals'])
     if step_1 == '1':
@@ -29,24 +47,27 @@ while True:
             step_3 = check_input('an action', ['Generate', 'Generate & Say'])
             if step_3 == '1':
                 print('\n', integer_to_vietnamese_numeral(n))
+                flag = one_more_time()
             elif step_3 == '2':
                 print('\n',
                       integer_to_vietnamese_numeral(n, activate_tts=True))
+                flag = one_more_time()
         if step_2 == '2':
             step_3 = check_input('an action', ['Generate', 'Generate & Say'])
             if step_3 == '1':
                 print('\n', integer_to_vietnamese_numeral(n, 'south'))
+                flag = one_more_time()
             elif step_3 == '2':
                 print('\n', integer_to_vietnamese_numeral(n, 'south',
                                                           activate_tts=True))
-    if step_1 == '2':
+                flag = one_more_time()
+    elif step_1 == '2':
         step_2 = check_input('an action', ['Generate', 'Generate & Say'])
         if step_2 == '1':
             print('\n', integer_to_english_numeral(n))
+            flag = one_more_time()
         elif step_2 == '2':
             print('\n', integer_to_english_numeral(n, activate_tts=True))
-    if input('One more time... (y/any key): ') == 'y':
-        continue
+            flag = one_more_time()
     else:
-        print('\nGoodbye!')
-    break
+        break
